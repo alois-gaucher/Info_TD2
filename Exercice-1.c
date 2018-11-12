@@ -5,8 +5,8 @@
 
 #include <stdio.h>
 
-int valint, aint, bint, minimumint;
-float valfloat, afloat, bfloat, minimumfloat;
+int valint, aint, bint, minimumint, maximumint;
+float valfloat, afloat, bfloat, minimumfloat, maximumfloat;
 
 //Fonction valeur absolue
 int absolueint (int valint) {
@@ -50,15 +50,35 @@ float minifloat (float afloat,float bfloat) {
 	return minimumfloat;
 }
 
-//Fonction discriminant
+//Fonction maximum float
+int maxfloat (float afloat, float bfloat) {
+	if (afloat > bfloat) {
+		maximumfloat = afloat;
+	}
+	else if (bfloat > afloat) {
+		maximumfloat = bfloat;
+	}
+	return maximumfloat;
+}
+
+//Fonction maximum int
+int maxint (int aint, int bint) {
+	if (aint > bint) {
+		maximumint = aint;
+	}
+	else if (bint > aint) {
+		maximumint = bint;
+	}
+	return maximumint;
+}
 
 
 //Fonction main
 int main() {
-	printf("Veuillez entrer un float: \n");
-	scanf("%f", &afloat);
-	printf("Veuillez entrer un autre float: \n");
-	scanf("%f", &bfloat);
-	minimumfloat = minifloat(afloat, bfloat);
-	printf("La valeur minimale de ces float est: %f \n", minimumfloat);
+	printf("Veuillez entrer un int: \n");
+	scanf("%d", &aint);
+	printf("Veuillez entrer un autre int: \n");
+	scanf("%d", &bint);
+	maximumint = maxint(aint, bint);
+	printf("La valeur minimale de ces int est: %d \n", maximumint);
 }
