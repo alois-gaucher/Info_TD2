@@ -80,5 +80,5 @@ int main() {
 	printf("Veuillez entrer un autre int: \n");
 	scanf("%d", &bint);
 	maximumint = maxint(aint, bint);
-	printf("La valeur minimale de ces int est: %d \n", maximumint);
+	printf("La valeur maximale de ces int est: %d \n", maximumint);
 }
