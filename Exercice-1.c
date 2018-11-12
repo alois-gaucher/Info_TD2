@@ -59,6 +59,6 @@ int main() {
 	scanf("%f", &afloat);
 	printf("Veuillez entrer un autre float: \n");
 	scanf("%f", &bfloat);
-	minimumfloat = minifloat(aint, bint);
+	minimumfloat = minifloat(afloat, bfloat);
 	printf("La valeur minimale de ces float est: %f \n", minimumfloat);
 }
