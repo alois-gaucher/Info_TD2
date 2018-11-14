@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 int valint, aint, bint, cint, minimumint, maximumint, selection;
-float valfloat, afloat, bfloat, minimumfloat, maximumfloat;
+float valfloat, afloat, bfloat, cfloat, minimumfloat, maximumfloat, x, capacite, frequence;
 
 //Fonction valeur absolue
 int absolueint (int valint) {
@@ -62,7 +62,7 @@ int maxint (int aint, int bint) {
 }
 
 //Fonction maximum float
-int maxfloat (float afloat, float bfloat) {
+float maxfloat (float afloat, float bfloat) {
 	if (afloat > bfloat) {
 		maximumfloat = afloat;
 	}
@@ -73,10 +73,16 @@ int maxfloat (float afloat, float bfloat) {
 }
 
 //Fonction discriminant
-//int discriminant (int aint, int bint, int cint) {
-	//discriminant = ((bint*bint)-(4*aint)*cint);
-	//return discriminant;
-//}
+float discriminant (float afloat, float bfloat, float cfloat) {
+	x = ((bfloat*bfloat)-(4*afloat)*cfloat);
+	return x;
+}
+
+//Fonction impedance C
+float impedanceC (float capacite, float frequence) {
+	x = 1/(capacite*(2*3.14159265359*frequence));
+	return x;
+}
 
 
 //Fonction main
@@ -88,6 +94,8 @@ int main() {
 	printf("4 - Calcul du minimum entre deux float\n");
 	printf("5 - Calcul du maximum entre deux entiers\n");
 	printf("6 - Calcul du maximum entre deux float\n");
+	printf("7 - Calcul du discriminant\n");
+	printf("8 - Calcul de l'impédance d'un condensateur C\n");
 	scanf("%d" ,&selection);
 	switch(selection)
 	{
@@ -134,6 +142,23 @@ int main() {
 			scanf("%f", &bfloat);
 			maximumfloat = maxfloat(afloat, bfloat);
 			printf("Le plus grand de ces float est: %f \n", maximumfloat);
+			break;
+		case 7: //Calcul du discriminant
+			printf("Veuillez entrer a: \n");
+			scanf("%f", &afloat);
+			printf("Veuillez entrer b: \n");
+			scanf("%f", &bfloat);
+			printf("Veuillez entrer c: \n");
+			scanf("%f", &cfloat);
+			//discriminant = discriminant(afloat, bfloat, cfloat);
+			printf("Le discriminant est: %f \n", discriminant(afloat, bfloat, cfloat));
+			break;
+		case 8: //Calcul de l'impédance d'un condensateur C
+			printf("Veuillez entrer la capacité du condensateur: \n");
+			scanf("%f", &capacite);
+			printf("Veuillez entrer la fréquence: \n");
+			scanf("%f", &frequence);
+			printf("L'impédance du condensateur C est: %f \n", impedanceC(capacite, frequence));
 			break;
 		default:
 			printf("Veuillez choisir une réponse correcte! \n");
