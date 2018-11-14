@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <math.h>
 
+//Déclaration des variables
 int valint, aint, bint, cint, minimumint, maximumint, selection;
 float valfloat, afloat, bfloat, cfloat, minimumfloat, maximumfloat, capacite, frequence, l;
 
@@ -91,6 +92,7 @@ float inductanceL (float l, float frequence) {
 
 //Fonction main
 int main() {
+	//Menu
     printf("Veuillez choisir l'opération à réaliser: \n");
 	printf("1 - Calcul de la valeur absolue d'un entier\n");
 	printf("2 - Calcul de la valeur absolue d'un float\n");
