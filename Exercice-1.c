@@ -4,9 +4,10 @@
 *******************************************************************************/
 
 #include <stdio.h>
+#include <math.h>
 
 int valint, aint, bint, cint, minimumint, maximumint, selection;
-float valfloat, afloat, bfloat, cfloat, minimumfloat, maximumfloat, x, capacite, frequence;
+float valfloat, afloat, bfloat, cfloat, minimumfloat, maximumfloat, capacite, frequence;
 
 //Fonction valeur absolue
 int absolueint (int valint) {
@@ -74,15 +75,16 @@ float maxfloat (float afloat, float bfloat) {
 
 //Fonction discriminant
 float discriminant (float afloat, float bfloat, float cfloat) {
-	x = ((bfloat*bfloat)-(4*afloat)*cfloat);
-	return x;
+	return ((bfloat*bfloat)-(4*afloat)*cfloat);
 }
 
 //Fonction impedance C
 float impedanceC (float capacite, float frequence) {
-	x = 1/(capacite*(2*3.14159265359*frequence));
-	return x;
+	return (1/(capacite*(2*M_PI*frequence)));
 }
+
+//Fonction inductance L
+//float inductanceL (float )
 
 
 //Fonction main
@@ -97,27 +99,25 @@ int main() {
 	printf("7 - Calcul du discriminant\n");
 	printf("8 - Calcul de l'impédance d'un condensateur C\n");
 	scanf("%d" ,&selection);
+	
 	switch(selection)
 	{
 		case 1: //Calcul de la valeur absolue d'un entier
 			printf("Veuillez entrer un entier: \n");
 			scanf("%d", &valint);
-			valint = absolueint(valint);
-			printf("La valeur absolue de cet entier est: %d \n", valint);
+			printf("La valeur absolue de cet entier est: %d \n", absolueint(valint));
 			break;
 		case 2: //Calcul de la valeur absolue d'un float
 			printf("Veuillez entrer un float: \n");
 			scanf("%f", &valfloat);
-			valfloat = absoluefloat(valfloat);
-			printf("La valeur absolue de ce float est: %f \n", valfloat);
+			printf("La valeur absolue de ce float est: %f \n", absoluefloat(valfloat));
 			break;
 		case 3: //Calcul du minimum entre deux entiers
 			printf("Veuillez entrer un premier entier: \n");
 			scanf("%d", &aint);
 			printf("Veuillez entrer un second entier: \n");
 			scanf("%d", &bint);
-			minimumint = miniint(aint, bint);
-			printf("Le plus petit de ces entiers est: %d \n", minimumint);
+			printf("Le plus petit de ces entiers est: %d \n", miniint(aint, bint));
 			break;
 		case 4: //Calcul du minimum entre deux float
 			printf("Veuillez entrer un premier float: \n");
@@ -132,16 +132,14 @@ int main() {
 			scanf("%d", &aint);
 			printf("Veuillez entrer un second entier: \n");
 			scanf("%d", &bint);
-			maximumint = maxint(aint, bint);
-			printf("Le plus grand de ces entiers est: %d \n", maximumint);
+			printf("Le plus grand de ces entiers est: %d \n", maxint(aint, bint));
 			break;
 		case 6: //Calcul du maximum entre deux float
 			printf("Veuillez entrer un premier float: \n");
 			scanf("%f", &afloat);
 			printf("Veuillez entrer un second float: \n");
 			scanf("%f", &bfloat);
-			maximumfloat = maxfloat(afloat, bfloat);
-			printf("Le plus grand de ces float est: %f \n", maximumfloat);
+			printf("Le plus grand de ces float est: %f \n", maxfloat(afloat, bfloat));
 			break;
 		case 7: //Calcul du discriminant
 			printf("Veuillez entrer a: \n");
