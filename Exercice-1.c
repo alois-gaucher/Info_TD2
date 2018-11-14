@@ -7,7 +7,7 @@
 #include <math.h>
 
 int valint, aint, bint, cint, minimumint, maximumint, selection;
-float valfloat, afloat, bfloat, cfloat, minimumfloat, maximumfloat, capacite, frequence;
+float valfloat, afloat, bfloat, cfloat, minimumfloat, maximumfloat, capacite, frequence, l;
 
 //Fonction valeur absolue
 int absolueint (int valint) {
@@ -84,7 +84,9 @@ float impedanceC (float capacite, float frequence) {
 }
 
 //Fonction inductance L
-//float inductanceL (float )
+float inductanceL (float l, float frequence) {
+	return l*2*M_PI*frequence;
+}
 
 
 //Fonction main
@@ -98,6 +100,7 @@ int main() {
 	printf("6 - Calcul du maximum entre deux float\n");
 	printf("7 - Calcul du discriminant\n");
 	printf("8 - Calcul de l'impédance d'un condensateur C\n");
+	printf("9 - Calcul de l'inductance d'une bobine L\n");
 	scanf("%d" ,&selection);
 	
 	switch(selection)
@@ -157,6 +160,13 @@ int main() {
 			printf("Veuillez entrer la fréquence: \n");
 			scanf("%f", &frequence);
 			printf("L'impédance du condensateur C est: %f \n", impedanceC(capacite, frequence));
+			break;
+		case 9: //Calcul de l'inductance d'une bobine
+			printf("Veuillez entrer L: \n");
+			scanf("%f", &l);
+			printf("Veuillez entrer la fréquence: \n");
+			scanf("%f", &frequence);
+			printf("L'inductance de la bobine est: %f \n", inductanceL(l, frequence));
 			break;
 		default:
 			printf("Veuillez choisir une réponse correcte! \n");
