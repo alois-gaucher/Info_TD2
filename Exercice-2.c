@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int n,selection;
+int n,nb,selection;
 
 //Tous les entiers entre zéro et n
 void tousentiers(int n) {
@@ -37,6 +37,13 @@ for (i=1; i<=n; i++) {
 	} 
 }
 
+//Affiche n fois un nombre nb
+void affichagenb(int n, int nb) {
+int i;
+for (i=0; i<=n; i++)
+	printf("%d \n",nb);
+}
+
 int main() {
 
 	//Menu
@@ -44,6 +51,7 @@ int main() {
 	printf("1 - Affichage de tous les entiers entre 0 et n\n");
 	printf("2 - Affichage de tous les entiers pairs entre 0 et n\n");
 	printf("3 - Affichage de tous les entiers impairs entre 0 et n\n");
+	printf("4 - Affichage de n fois un nombre nb\n");
 	scanf("%d" ,&selection);
 
 		switch(selection)
@@ -67,6 +75,15 @@ int main() {
 			scanf("%d", &n);
 			printf("Tous les entiers impairs compris entre 0 et %d: \n",n);
 			tousimpairs(n);
+			break;
+
+			case 4: //Affiche n fois un nombre nb
+			printf("Veuillez entrer un entier nb à afficher: \n");
+			scanf("%d", &nb);
+			printf("Combien de fois voulez-vous l'afficher?: \n");
+			scanf("%d", &n);
+			printf("Affichage de %d fois le nombre %d: \n",n,nb);
+			affichagenb(n,nb);
 			break;
 	
 			default:
